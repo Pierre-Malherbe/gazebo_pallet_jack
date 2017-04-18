@@ -1,0 +1,180 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+	<model name="pallet_jack">
+		<static>false</static>
+
+		<!-- CHASSIS -->
+		<link name='chassis'>
+			<pose>0 0 .1 0 0 0</pose>
+			<collision name='collision'>
+				<geometry>
+					<box>
+						<size>1 1 .2</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name='visual'>
+				<geometry>
+					<box>
+						<size>1 1 .2</size>
+					</box>
+				</geometry>
+			</visual>
+
+			<collision name = "front_collision">
+				<pose>.55 0 .1 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>.1 .3 .4</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name = "front_visual">
+				<pose>.55 0 .1 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>.1 .3 .4</size>
+					</box>
+				</geometry>
+			</visual>
+
+			<collision name = "front_up_collision">
+				<pose>.75 0 .25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>.3 .3 .1</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name = "front_up_visual">
+				<pose>.75 0 .25 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>.3 .3 .1</size>
+					</box>
+				</geometry>
+			</visual>
+		</link>
+
+		<!--BACK LEFT WHEEL-->
+		<link name = "back_left_wheel">
+			<pose>-.4 -.53 .05 0 1.5707 1.5707</pose>
+			<collision name = "back_left_wheel_collision">
+				<geometry>
+					<cylinder>
+						<radius>.1</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</collision>
+
+			<visual name = "back_left_wheel_visual">
+				<geometry>
+					<cylinder>
+						<radius>.1</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<!--BACK RIGHT WHEEL-->
+		<link name = "back_right_wheel">
+			<pose>-.4 .53 .05 0 1.5707 1.5707</pose>
+			<collision name = "back_right_wheel_collision">
+				<geometry>
+					<cylinder>
+						<radius>.1</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</collision>
+
+			<visual name = "back_right_wheel_visual">
+				<geometry>
+					<cylinder>
+						<radius>.1</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<!--CENTER WHEEL-->
+		<link name = "center_wheel">
+			<pose>.8 0 .1 0 1.5707 1.5707</pose>
+			<collision name = "center_wheel_collision">
+				<geometry>
+					<cylinder>
+						<radius>.15</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</collision>
+
+			<visual name = "center_wheel_visual">
+				<geometry>
+					<cylinder>
+						<radius>.15</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<!-- this is a dummy link that is used in order to obtain 2 DOF
+			 between the chassis and the center wheel -->
+		<link name = "dummy_link">
+			<pose>.8 0 .1 0 0 0</pose>
+			<visual name = "dummy">
+				<geometry>
+					<box>
+						<size>.3 .3 .1</size>
+					</box>
+				</geometry>
+			</visual>
+		</link>
+
+		<!--CHASSIS BACK RIGHT WHEEL JOINT-->
+		<joint type = "revolute" name = "chassis_backright_joint">
+			<pose>0 0 -.1 0 0 0</pose>
+			<child>back_right_wheel</child>
+			<parent>chassis</parent>
+			<axis>
+			 	<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<!--CHASSIS BACK LEFT WHEEL JOINT-->
+		<joint type = "revolute" name = "chassis_backleft_joint">
+			<pose>0 0 -.1 0 0 0</pose>
+			<child>back_left_wheel</child>
+			<parent>chassis</parent>
+			<axis>
+			 	<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+
+		<!--CHASSIS CENTER WHEEL JOINT-->
+		<joint type = "revolute" name = "chassis_dummy_joint">
+			<pose>0 0 0 0 0 0</pose>
+			<child>dummy_link</child>
+			<parent>chassis</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+			</axis>
+		</joint>
+		<joint type = "revolute" name = "dummy_center_joint">
+			<pose>0 0 0 0 0 0</pose>
+			<child>center_wheel</child>
+			<parent>dummy_link</parent>
+			<axis>
+			 	<xyz>0 0 1</xyz>
+			</axis>
+		</joint>
+
+	</model>
+</sdf>
