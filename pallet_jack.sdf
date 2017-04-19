@@ -193,8 +193,8 @@
 				<xyz>0 0 1</xyz>
         		<use_parent_model_frame>0</use_parent_model_frame>
         		<limit>
-          			<lower>-1.79769</lower>
-          			<upper>1.79769</upper>
+          			<lower>-1.5707</lower>
+          			<upper>1.5707</upper>
         		</limit>
 			</axis>
 		</joint>
@@ -207,7 +207,10 @@
 			<axis>
 			 	<xyz>0 0 1</xyz>
         		<use_parent_model_frame>0</use_parent_model_frame>
+
 			</axis>
+
+			
 		</joint>
 
 		<joint type = "revolute" name = "dummy_centerR_joint">
@@ -218,6 +221,7 @@
 			 	<xyz>0 0 1</xyz>
         		<use_parent_model_frame>0</use_parent_model_frame>
 			</axis>
+			
 		</joint>
 
 		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
