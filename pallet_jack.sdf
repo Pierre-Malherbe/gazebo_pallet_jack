@@ -102,11 +102,12 @@
 				</geometry>
 			</visual>
 		</link>
+		<!-- Wheel sources of movement -->
 
-		<!--CENTER WHEEL-->
-		<link name = "center_wheel">
-			<pose>.8 0 .1 0 1.5707 1.5707</pose>
-			<collision name = "center_wheel_collision">
+		<!--CENTER RIGHT WHEEL-->
+		<link name = "center_right_wheel">
+			<pose>.8 .05 .1 0 1.5707 1.5707</pose>
+			<collision name = "center_right_wheel_collision">
 				<geometry>
 					<cylinder>
 						<radius>.15</radius>
@@ -115,7 +116,29 @@
 				</geometry>
 			</collision>
 
-			<visual name = "center_wheel_visual">
+			<visual name = "center_right_wheel_visual">
+				<geometry>
+					<cylinder>
+						<radius>.15</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</visual>
+		</link>
+
+		<!--CENTER LEFT WHEEL-->
+		<link name = "center_left_wheel">
+			<pose>.8 -.05 .1 0 1.5707 1.5707</pose>
+			<collision name = "center_left_wheel_collision">
+				<geometry>
+					<cylinder>
+						<radius>.15</radius>
+						<length>.05</length>
+					</cylinder>
+				</geometry>
+			</collision>
+
+			<visual name = "center_left_wheel_visual">
 				<geometry>
 					<cylinder>
 						<radius>.15</radius>
@@ -175,15 +198,43 @@
         		</limit>
 			</axis>
 		</joint>
-		<joint type = "revolute" name = "dummy_center_joint">
+
+		<!-- JOINTS BETWEEN WHEELS AND DUMMY LINK -->
+		<joint type = "revolute" name = "dummy_centerL_joint">
 			<pose>0 0 0 0 0 0</pose>
-			<child>center_wheel</child>
+			<child>center_left_wheel</child>
 			<parent>dummy_link</parent>
 			<axis>
 			 	<xyz>0 0 1</xyz>
         		<use_parent_model_frame>0</use_parent_model_frame>
 			</axis>
 		</joint>
+
+		<joint type = "revolute" name = "dummy_centerR_joint">
+			<pose>0 0 0 0 0 0</pose>
+			<child>center_right_wheel</child>
+			<parent>dummy_link</parent>
+			<axis>
+			 	<xyz>0 0 1</xyz>
+        		<use_parent_model_frame>0</use_parent_model_frame>
+			</axis>
+		</joint>
+
+		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>10</updateRate>
+          <leftJoint>dummy_centerL_joint</leftJoint>
+          <rightJoint>dummy_centerR_joint</rightJoint>
+          <wheelSeparation>0.1</wheelSeparation>
+          <wheelDiameter>0.3</wheelDiameter>
+          <wheelTorque>2.5</wheelTorque>
+          <torque>5</torque>
+          <commandTopic>cmd_vel</commandTopic>
+          <odometryTopic>odom</odometryTopic>
+          <odometryFrame>odom</odometryFrame>
+          <robotBaseFrame>base_footprint</robotBaseFrame>
+          <legacyMode>false</legacyMode>
+      </plugin>
 
 	</model>
 </sdf>
