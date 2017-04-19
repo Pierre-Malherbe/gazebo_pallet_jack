@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"lo",
+				"lower"
+			],
+			[
 				"back_",
 				"back_right_wheel_collision"
 			],
@@ -15,6 +19,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "pallet_jack.sdf",
+			"settings":
+			{
+				"buffer_size": 8815,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -48,8 +61,9 @@
 	},
 	"file_history":
 	[
-		"/home/emilianogagliardi/git/gazebo_pallet_jack/model.config",
 		"/home/emilianogagliardi/Desktop/willy2/model.sdf",
+		"/home/emilianogagliardi/model_editor_models/HAND_MADE/model.sdf",
+		"/home/emilianogagliardi/git/gazebo_pallet_jack/model.config",
 		"/home/emilianogagliardi/git/gazebo_pallet_jack/pallet_jack.sdf",
 		"/home/emilianogagliardi/Desktop/willy2/model.config",
 		"/home/emilianogagliardi/catkin_ws/src/myrobot_gazebo/worlds/myrobot.world",
@@ -98,8 +112,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "pallet_jack.sdf",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8815,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1715,
+								1715
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 896.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

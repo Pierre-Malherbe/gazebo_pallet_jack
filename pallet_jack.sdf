@@ -6,18 +6,58 @@
 		<!-- CHASSIS -->
 		<link name='chassis'>
 			<pose>0 0 .1 0 0 0</pose>
-			<collision name='collision'>
+
+			<collision name='center_collision'>
+				<pose>.4 0 0 0 0 0</pose>
 				<geometry>
 					<box>
-						<size>1 1 .2</size>
+						<size>.2 .6 .12</size>
 					</box>
 				</geometry>
 			</collision>
 
-			<visual name='visual'>
+			<visual name='center_visual'>
+				<pose>.4 0 0 0 0 0</pose>
 				<geometry>
 					<box>
-						<size>1 1 .2</size>
+						<size>.2 .6 .12</size>
+					</box>
+				</geometry>
+			</visual>
+
+
+			<collision name='left_collision'>
+				<pose>0 -.4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .12</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name='left_visual'>
+				<pose>0 -.4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .12</size>
+					</box>
+				</geometry>
+			</visual>
+
+			<collision name='right_collision'>
+				<pose>0 .4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .12</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name='right_visual'>
+				<pose>0 .4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .12</size>
 					</box>
 				</geometry>
 			</visual>
@@ -26,7 +66,7 @@
 				<pose>.55 0 .1 0 0 0</pose>
 				<geometry>
 					<box>
-						<size>.1 .3 .4</size>
+						<size>.1 .3 .34</size>
 					</box>
 				</geometry>
 			</collision>
@@ -35,13 +75,13 @@
 				<pose>.55 0 .1 0 0 0</pose>
 				<geometry>
 					<box>
-						<size>.1 .3 .4</size>
+						<size>.1 .3 .34</size>
 					</box>
 				</geometry>
 			</visual>
 
 			<collision name = "front_up_collision">
-				<pose>.75 0 .25 0 0 0</pose>
+				<pose>.75 0 .22 0 0 0</pose>
 				<geometry>
 					<box>
 						<size>.3 .3 .1</size>
@@ -50,7 +90,7 @@
 			</collision>
 
 			<visual name = "front_up_visual">
-				<pose>.75 0 .25 0 0 0</pose>
+				<pose>.75 0 .22 0 0 0</pose>
 				<geometry>
 					<box>
 						<size>.3 .3 .1</size>
@@ -95,19 +135,58 @@
 
 		<!--LIFT-->
 		<link name = "lift">
-			<pose> 0 0 .15 0 0 0</pose>
-			<collision name='collision'>
+			<pose> 0 0 .20 0 0 0</pose>
+			<collision name='center_lift_collision'>
+				<pose>.4 0 0 0 0 0</pose>
 				<geometry>
 					<box>
-						<size>1 1 .05</size>
+						<size>.2 .6 .05</size>
 					</box>
 				</geometry>
 			</collision>
 
-			<visual name='visual'>
+			<visual name='center_lift_visual'>
+				<pose>.4 0 0 0 0 0</pose>
 				<geometry>
 					<box>
-						<size>1 1 .05</size>
+						<size>.2 .6 .05</size>
+					</box>
+				</geometry>
+			</visual>
+
+
+			<collision name='left_lift_collision'>
+				<pose>0 -.4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .05</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name='left_lift_visual'>
+				<pose>0 -.4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .05</size>
+					</box>
+				</geometry>
+			</visual>
+
+			<collision name='right_lift_collision'>
+				<pose>0 .4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .05</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name='right_lift_visual'>
+				<pose>0 .4 0 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>1 .2 .05</size>
 					</box>
 				</geometry>
 			</visual>
