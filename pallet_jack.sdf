@@ -57,6 +57,60 @@
 					</box>
 				</geometry>
 			</visual>
+
+			<sensor type="gpu_ray" name="laser_sensor">
+				<pose>.55 0 .35 0 0 3.14</pose>
+				<visualize>true</visualize>
+				<update_rate>40</update_rate>
+				<ray>
+					<scan>
+						<horizontal>
+							<samples>720</samples>
+							<resolution>1</resolution>
+							<min_angle>-1.570796</min_angle>
+							<max_angle>1.570796</max_angle>
+						</horizontal>
+					</scan>
+					<range>
+						<min>0.10</min>
+						<max>30.0</max>
+						<resolution>0.01</resolution>
+					</range>
+					<noise>
+						<type>gaussian</type>
+						<!-- Noise parameters based on published spec for Hokuyo laser
+						achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+						stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+						reading. -->
+						<mean>0.0</mean>
+						<stddev>0.01</stddev>
+					</noise>
+				</ray>
+				<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+					<topicName>/pallet_jack/laser/scan</topicName>
+					<frameName>chassis</frameName>
+				</plugin>
+			</sensor>
+		</link>
+
+		<!--LIFT-->
+		<link name = "lift">
+			<pose> 0 0 .15 0 0 0</pose>
+			<collision name='collision'>
+				<geometry>
+					<box>
+						<size>1 1 .05</size>
+					</box>
+				</geometry>
+			</collision>
+
+			<visual name='visual'>
+				<geometry>
+					<box>
+						<size>1 1 .05</size>
+					</box>
+				</geometry>
+			</visual>
 		</link>
 
 		<!--BACK LEFT WHEEL-->
@@ -209,8 +263,6 @@
         		<use_parent_model_frame>0</use_parent_model_frame>
 
 			</axis>
-
-			
 		</joint>
 
 		<joint type = "revolute" name = "dummy_centerR_joint">
@@ -220,10 +272,26 @@
 			<axis>
 			 	<xyz>0 0 1</xyz>
         		<use_parent_model_frame>0</use_parent_model_frame>
-			</axis>
-			
+			</axis>	
 		</joint>
 
+		<!-- JOINT BETWEEN CHASSIS AND LIFT-->
+		<joint type = "prismatic" name = "chassis_lift_joint">
+			<pose> 0 0 0 0 0 0 </pose>
+			<child>lift</child>
+			<parent>chassis</parent>
+			<axis>
+			 	<xyz>0 0 1</xyz>
+        		<use_parent_model_frame>0</use_parent_model_frame>
+        		<limit>
+        			<lower>.02</lower>
+        			<upper>1</upper>
+        		</limit>
+			</axis>	
+		</joint>
+
+
+<!--
 		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>10</updateRate>
@@ -239,6 +307,6 @@
           <robotBaseFrame>base_footprint</robotBaseFrame>
           <legacyMode>false</legacyMode>
       </plugin>
-
+-->
 	</model>
 </sdf>
