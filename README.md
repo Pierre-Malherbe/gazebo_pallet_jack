@@ -3,19 +3,19 @@ Design of an autonomous pallet jack using gazebo
 
 ## Instructions
 To control the robot from the keyboard there's the need to install teleop-twist:
-sudo apt-get install ros-kinetic-teleop-twist-keyboard
+`sudo apt-get install ros-kinetic-teleop-twist-keyboard`
 
 If apt does not find the package:
-apt-cache search ros-kinetic-teleop 
+`apt-cache search ros-kinetic-teleop` 
 
 and find another package with a similar name.
 
 To run:
-roslaunch gazebo_ros empty_world.launch
+`roslaunch gazebo_ros empty_world.launch`
 
 Add the model to the world and check if the topic cmd_vel has been created under the name of the robot.
 
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=robot0/cmd_vel
+`rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=robot0/cmd_vel`
 
 Where robot_0 must be substituted with the name of the robot.
 In this way teleop publishes on the right topic.
