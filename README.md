@@ -30,7 +30,7 @@ In this way teleop publishes on the right topic.
 
 ### Laser Scan 
 Laser Scan publish messages of type sensor_msgs/LaserScan.msg
-The sensor class is #GpuRaySensor#
+The sensor class is GpuRaySensor.
 Reference: 
 - http://docs.ros.org/kinetic/api/sensor_msgs/html/msg/LaserScan.html
 - http://answers.ros.org/question/198843/need-explanation-on-sensor_msgslaserscanmsg/
