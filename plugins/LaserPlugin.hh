@@ -8,6 +8,8 @@
 #include <gazebo/transport/transport.hh>
 #include <gazebo/msgs/msgs.hh>
 #include "ros/ros.h"
+#include "std_msgs/Bool.h"
+#include "ros/subscribe_options.h"
 
 namespace gazebo
 {
@@ -27,7 +29,8 @@ private: sensors::GpuRaySensorPtr parentSensor;
 
 private: event::ConnectionPtr updateConnection;
 
-private: transport::PublisherPtr publisher;
+private: ros::Publisher publisher;
+
 
 };
 }
