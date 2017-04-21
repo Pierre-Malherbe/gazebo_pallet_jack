@@ -7,8 +7,7 @@
 #include <gazebo/sensors/sensors.hh>
 #include <gazebo/transport/transport.hh>
 #include <gazebo/msgs/msgs.hh>
-
-#include "bool_msg.pb.h"
+#include "ros/ros.h"
 
 namespace gazebo
 {
