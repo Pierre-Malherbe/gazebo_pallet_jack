@@ -5,6 +5,8 @@
 
 #include <gazebo/gazebo.hh>
 #include <gazebo/sensors/sensors.hh>
+#include <gazebo/transport/transport.hh>
+#include <gazebo/msgs/msgs.hh>
 
 namespace gazebo
 {
@@ -22,6 +24,8 @@ private: virtual void OnUpdate();
 private: sensors::GpuRaySensorPtr parentSensor;
 
 private: event::ConnectionPtr updateConnection;
+
+private: transport::PublisherPtr publisher;
 
 };
 }
