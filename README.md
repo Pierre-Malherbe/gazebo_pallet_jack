@@ -36,6 +36,12 @@ Reference:
 - http://answers.ros.org/question/198843/need-explanation-on-sensor_msgslaserscanmsg/
 - http://osrf-distributions.s3.amazonaws.com/gazebo/api/dev/group__gazebo__sensors.html
 
+### Plugin Library Path
+
+```
+export LD_LIBRARY_PATH=~/path_to_build/build:$LD_LIBRARY_PATH
+```
+
 Reference: 
 - http://wiki.ros.org/stdr_simulator/Tutorials/Teleop%20with%20teleop_twist_keyboard
 
