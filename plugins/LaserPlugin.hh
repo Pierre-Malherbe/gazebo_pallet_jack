@@ -8,8 +8,11 @@
 #include <gazebo/transport/transport.hh>
 #include <gazebo/msgs/msgs.hh>
 
+#include "bool_msg.pb.h"
+
 namespace gazebo
 {
+	// \brief A plugin that reads from laser and publishes on a topic
 	// \brief A plugin that reads from laser and publishes on a topic
 	class LaserPlugin : public SensorPlugin
 {

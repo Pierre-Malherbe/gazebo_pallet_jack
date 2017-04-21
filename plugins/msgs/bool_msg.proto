@@ -1,0 +1,6 @@
+package pallet_jack_msgs.msgs;
+
+message bool_msg
+{
+    required bool is_loaded = 1;
+}

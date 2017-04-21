@@ -130,6 +130,8 @@
 					<topicName>/pallet_jack/laser/scan</topicName>
 					<frameName>chassis</frameName>
 				</plugin>
+				<plugin name = "laser_plugin" filename = "liblaser_plugin.so">
+				</plugin>
 			</sensor>
 		</link>
 
