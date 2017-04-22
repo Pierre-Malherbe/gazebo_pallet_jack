@@ -13,6 +13,8 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
 add_library(laser_plugin SHARED LaserPlugin.cc)
+add_library(lift_plugin SHARED LiftPlugin.cc)
 
 target_link_libraries(laser_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
+target_link_libraries(lift_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
 

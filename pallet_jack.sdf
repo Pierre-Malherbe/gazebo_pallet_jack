@@ -98,6 +98,11 @@
 				</geometry>
 			</visual>
 
+			<!-- Intertia values -->
+			<inertial>
+				<mass>100</mass>
+			</inertial>
+
 			<sensor type="gpu_ray" name="laser_sensor">
 				<pose>.55 0 .35 0 0 3.14</pose>
 				<visualize>true</visualize>
@@ -192,6 +197,11 @@
 					</box>
 				</geometry>
 			</visual>
+
+			<!-- Intertia values -->
+			<inertial>
+				<mass>10</mass>
+			</inertial>
 		</link>
 
 		<!--BACK LEFT WHEEL-->
@@ -214,6 +224,10 @@
 					</cylinder>
 				</geometry>
 			</visual>
+			<!-- Intertia values -->
+			<inertial>
+				<mass>10</mass>
+			</inertial>
 		</link>
 
 		<!--BACK RIGHT WHEEL-->
@@ -236,6 +250,11 @@
 					</cylinder>
 				</geometry>
 			</visual>
+
+			<!-- Intertia values -->
+			<inertial>
+				<mass>10</mass>
+			</inertial>
 		</link>
 		<!-- Wheel sources of movement -->
 
@@ -259,6 +278,11 @@
 					</cylinder>
 				</geometry>
 			</visual>
+
+			<!-- Intertia values -->
+			<inertial>
+				<mass>10</mass>
+			</inertial>
 		</link>
 
 		<!--CENTER LEFT WHEEL-->
@@ -281,6 +305,11 @@
 					</cylinder>
 				</geometry>
 			</visual>
+
+			<!-- Intertia values -->
+			<inertial>
+				<mass>10</mass>
+			</inertial>
 		</link>
 
 		<!-- this is a dummy link that is used in order to obtain 2 DOF
@@ -389,5 +418,9 @@
           <legacyMode>false</legacyMode>
       </plugin>
 -->
+
+	<!-- Lift Plugin -->
+	<plugin name="lift_plugin" filename="liblift_plugin.so"/>
+    
 	</model>
 </sdf>
